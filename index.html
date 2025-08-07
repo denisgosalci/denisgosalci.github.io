@@ -7,7 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2b4a7d;
+            --primary: #1f3b73;
+            --primary-light: #2e5da5;
             --accent: #d4af37;
             --light-bg: #f7f7f7;
             --text-dark: #333;
@@ -24,12 +25,13 @@
             line-height: 1.6;
         }
         header {
-            background-color: var(--primary);
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
             color: white;
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
         header h1 {
             font-family: 'Merriweather', serif;
@@ -42,16 +44,21 @@
             padding: 0.4rem 0.8rem;
             cursor: pointer;
             font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .lang-toggle:hover {
+            background: #b08c2d;
         }
         .hero {
             text-align: center;
             padding: 4rem 1rem;
-            background-color: white;
+            background: linear-gradient(180deg, var(--primary), var(--primary-light));
+            color: white;
         }
         .hero h2 {
             font-family: 'Merriweather', serif;
             font-size: 2rem;
-            color: var(--primary);
         }
         .hero p {
             font-size: 1.2rem;
@@ -76,17 +83,21 @@
             gap: 1rem;
         }
         .downloads a {
+            display: block;
             background-color: var(--accent);
             color: white;
             text-decoration: none;
             padding: 0.8rem;
             text-align: center;
             font-weight: bold;
-            border-radius: 4px;
-            transition: background 0.3s ease;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
         }
         .downloads a:hover {
             background-color: #b08c2d;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
         }
         footer {
             text-align: center;
@@ -130,7 +141,7 @@
     <h3 id="contact-title">Kontakt</h3>
     <p id="contact-text">
         E-Mail: <a href="mailto:denisgosalci@proton.me">denisgosalci@proton.me</a><br>
-        GitHub: <a href="https://github.com/denisgosalci/denisgosalci.github.io" target="_blank">github.com/denisgosalci/denisgosalci.github.io</a>
+        GitHub: <a href="https://github.com/denisgosalci" target="_blank">github.com/denisgosalci</a>
     </p>
 </section>
 
@@ -151,7 +162,7 @@
             certsText: "Zeugnisse",
             pubText: "Publikation",
             contactTitle: "Kontakt",
-            contactText: "E-Mail: <a href='mailto:denisgosalci@proton.me'>denisgosalci@proton.me</a><br>GitHub: <a href='https://github.com/va42xuqi' target='_blank'>github.com/va42xuqi</a>"
+            contactText: "E-Mail: <a href='mailto:denisgosalci@proton.me'>denisgosalci@proton.me</a><br>GitHub: <a href='https://github.com/denisgosalci/denisgosalci.github.io' target='_blank'>github.com/denisgosalci/denisgosalci.github.io</a>"
         },
         en: {
             heroTitle: "Software Developer with a focus on Machine Learning & Data Processing",
@@ -164,7 +175,7 @@
             certsText: "Certificates",
             pubText: "Publication",
             contactTitle: "Contact",
-            contactText: "Email: <a href='mailto:denisgosalci@proton.me'>denisgosalci@proton.me</a><br>GitHub: <a href='https://github.com/va42xuqi' target='_blank'>github.com/va42xuqi</a>"
+            contactText: "Email: <a href='mailto:denisgosalci@proton.me'>denisgosalci@proton.me</a><br>GitHub: <a href='https://github.com/denisgosalci/denisgosalci.github.io' target='_blank'>github.com/denisgosalci/denisgosalci.github.io</a>"
         }
     };
 
@@ -190,3 +201,4 @@
 
 </body>
 </html>
+
