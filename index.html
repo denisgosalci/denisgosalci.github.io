@@ -100,6 +100,23 @@
     .doc .desc{ font-size:.95rem; color:var(--muted) }
     .doc .row{ display:flex; align-items:center; gap:10px }
 
+    /* Karten-Layout: Button immer unten */
+.doc{
+  display:grid;
+  grid-template-rows:auto 1fr auto; /* Header / Füller / Button */
+}
+
+/* Titelzeile mit Badge */
+.title-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+/* Optionale Vereinheitlichung der Beschreibungshöhe */
+.doc .desc{ min-height: 2.8em; }
+
     .pdf-icon{
       width:28px; height:28px; flex:0 0 28px; border-radius:6px;
       background:linear-gradient(145deg,#e74c3c,#c0392b);
@@ -179,16 +196,20 @@
           <a id="certs-link" class="btn" href="/assets/docs/Zeugnisse.pdf" download>Download</a>
         </article>
 
-        <article class="doc">
-          <div class="row">
-            <div class="pdf-icon">PDF</div>
-            <div>
-              <div class="title" id="pub-title">Publikation</div>
-              <div class="desc" id="pub-desc">Encoder-basierter Transformer für NBA-Tracking-Vorhersage <span class="ieee-badge">IEEE</span></div>
-            </div>
-          </div>
-          <a id="pub-link" class="btn" href="/assets/docs/Publikation_IEEE.pdf" download>Download</a>
-        </article>
+<article class="doc">
+  <div class="row">
+    <div class="pdf-icon">PDF</div>
+    <div>
+      <div class="title-row">
+        <div class="title" id="pub-title">Publikation</div>
+        <span class="ieee-badge">IEEE</span>
+      </div>
+      <div class="desc" id="pub-desc">Encoder-basierter Transformer für NBA-Tracking-Vorhersage</div>
+    </div>
+  </div>
+  <a id="pub-link" class="btn" href="/assets/docs/Publikation_IEEE.pdf" download>Download</a>
+</article>
+
       </div>
     </section>
 
@@ -219,7 +240,7 @@
         certsDesc:"Abschluss- und Arbeitszeugnisse",
         certsBtn:"Download",
         pubTitle:"Publikation",
-        pubDesc:"Encoder-basierter Transformer für NBA-Tracking-Vorhersage <span class='ieee-badge'>IEEE</span>",
+        pubDesc:"Encoder-basierter Transformer für NBA-Tracking-Vorhersage",
         pubBtn:"Download",
         contactTitle:"Kontakt",
         contactHTML:"E-Mail: <a href='mailto:denisgosalci@proton.me'>denisgosalci@proton.me</a><br>GitHub: <a href='https://github.com/denisgosalci/denisgosalci.github.io' target='_blank'>github.com/denisgosalci/denisgosalci.github.io</a>"
@@ -238,7 +259,7 @@
         certsDesc:"Academic and employment certificates",
         certsBtn:"Download",
         pubTitle:"Publication",
-        pubDesc:"Encoder-based Transformer for NBA tracking prediction <span class='ieee-badge'>IEEE</span>",
+        pubDesc:"Encoder-based Transformer for NBA tracking prediction",
         pubBtn:"Download",
         contactTitle:"Contact",
         contactHTML:"Email: <a href='mailto:denisgosalci@proton.me'>denisgosalci@proton.me</a><br>GitHub: <a href='https://github.com/denisgosalci/denisgosalci.github.io' target='_blank'>github.com/denisgosalci/denisgosalci.github.io</a>"
@@ -273,7 +294,7 @@
       document.getElementById("certs-link").textContent = t.certsBtn;
 
       document.getElementById("pub-title").textContent = t.pubTitle;
-      document.getElementById("pub-desc").innerHTML = t.pubDesc;
+      document.getElementById("pub-desc").textContent = t.pubDesc;
       document.getElementById("pub-link").textContent = t.pubBtn;
 
       // contact
