@@ -1,204 +1,298 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Denis Gosalci - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1f3b73;
-            --primary-light: #2e5da5;
-            --accent: #d4af37;
-            --light-bg: #f7f7f7;
-            --text-dark: #333;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-        header {
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        }
-        header h1 {
-            font-family: 'Merriweather', serif;
-            font-size: 1.5rem;
-        }
-        .lang-toggle {
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 0.4rem 0.8rem;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        .lang-toggle:hover {
-            background: #b08c2d;
-        }
-        .hero {
-            text-align: center;
-            padding: 4rem 1rem;
-            background: linear-gradient(180deg, var(--primary), var(--primary-light));
-            color: white;
-        }
-        .hero h2 {
-            font-family: 'Merriweather', serif;
-            font-size: 2rem;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
-        }
-        .section {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 1rem;
-            background-color: white;
-            border-radius: 6px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .section h3 {
-            font-family: 'Merriweather', serif;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        .downloads {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
-        }
-        .downloads a {
-            display: block;
-            background-color: var(--accent);
-            color: white;
-            text-decoration: none;
-            padding: 0.8rem;
-            text-align: center;
-            font-weight: bold;
-            border-radius: 6px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
-        }
-        .downloads a:hover {
-            background-color: #b08c2d;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Denis Gosalci · Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue:#1f3b73;
+      --blue2:#2e5da5;
+      --pastel:#f5f0e6;
+      --card:#ffffff;
+      --gold:#d4af37;
+      --gold2:#b08c2d;
+      --ink:#2b2b2b;
+      --muted:#6b6b6b;
+      --radius:14px;
+      --shadow:0 10px 25px rgba(0,0,0,.10);
+      --shadow-sm:0 4px 12px rgba(0,0,0,.12);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:'Lato',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--pastel);
+      line-height:1.6;
+      overflow-x:hidden;
+      position:relative;
+    }
+    /* subtle paper/rough texture overlay */
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      background-image:
+        radial-gradient(rgba(0,0,0,.025) 1px, transparent 1.2px),
+        radial-gradient(rgba(0,0,0,.015) .7px, transparent 1.1px);
+      background-size: 3px 3px, 5px 5px;
+      mix-blend-mode: multiply;
+      opacity:.8;
+      z-index:0;
+    }
+
+    header{
+      position:sticky; top:0; z-index:5;
+      padding:14px 22px;
+      color:#fff;
+      background:linear-gradient(90deg,var(--blue),var(--blue2));
+      box-shadow:0 2px 8px rgba(0,0,0,.18);
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    header h1{
+      font-family:'Merriweather',serif; font-size:1.25rem; letter-spacing:.3px;
+    }
+    .lang-toggle{
+      border:0; cursor:pointer; font-weight:700; color:#fff;
+      padding:8px 12px; border-radius:10px;
+      background:linear-gradient(180deg,var(--gold),var(--gold2));
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.35), var(--shadow-sm);
+      transition:transform .15s ease, filter .15s ease;
+    }
+    .lang-toggle:hover{ filter:brightness(1.05); transform:translateY(-1px) }
+    .lang-toggle:active{ transform:translateY(0) }
+
+    .hero{
+      position:relative; z-index:1;
+      color:#fff; text-align:center;
+      padding:72px 18px 84px;
+      background:linear-gradient(180deg,var(--blue) 0%, var(--blue2) 60%, rgba(46,93,165,0) 100%);
+    }
+    .hero h2{
+      font-family:'Merriweather',serif; font-size:2.2rem; line-height:1.25;
+      text-shadow:0 2px 8px rgba(0,0,0,.28);
+    }
+    .hero p{ opacity:.95; margin-top:10px }
+
+    .container{ max-width:1000px; margin:0 auto; padding:0 18px; position:relative; z-index:1 }
+
+    .card{
+      background:var(--card); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:22px; margin:22px auto;
+      backdrop-filter:saturate(1.1);
+      opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s ease;
+    }
+    .card.show{ opacity:1; transform:none }
+    .card h3{
+      font-family:'Merriweather',serif; color:var(--blue); margin-bottom:8px; font-size:1.25rem;
+    }
+    .muted{ color:var(--muted) }
+
+    .docs{
+      display:grid; gap:16px;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      margin-top:6px;
+    }
+    .doc{
+      background:#ffffff; border-radius:12px; padding:16px; box-shadow:var(--shadow-sm);
+      display:flex; flex-direction:column; gap:10px; justify-content:space-between;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .doc:hover{ transform:translateY(-3px); box-shadow:0 12px 26px rgba(0,0,0,.18) }
+    .doc .title{ font-weight:800; color:var(--ink) }
+    .doc .desc{ font-size:.95rem; color:var(--muted) }
+    .doc .row{ display:flex; align-items:center; gap:10px }
+    .pdf-icon{
+      width:28px; height:28px; flex:0 0 28px; border-radius:6px;
+      background:linear-gradient(145deg,#e74c3c,#c0392b);
+      display:grid; place-items:center; color:#fff; font-size:.8rem; font-weight:900;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.35);
+    }
+    .ieee-badge{
+      font-size:.8rem; background:#0033a0; color:#fff; padding:2px 6px; border-radius:999px; font-weight:700;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.35);
+    }
+
+    .btn{
+      display:inline-block; text-decoration:none; color:#fff; font-weight:800;
+      padding:10px 14px; border-radius:10px; text-align:center;
+      background:linear-gradient(180deg,var(--gold),var(--gold2));
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.40), var(--shadow-sm);
+      transition:transform .15s ease, filter .15s ease;
+    }
+    .btn:hover{ filter:brightness(1.05); transform:translateY(-1px) }
+    .btn:active{ transform:translateY(0) }
+
+    footer{
+      text-align:center; color:var(--muted); padding:26px 12px 42px;
+    }
+    a{ color:#1a56db }
+    @media (min-width:860px){
+      .hero h2{ font-size:2.6rem }
+    }
+  </style>
 </head>
 <body>
 
-<header>
+  <header>
     <h1>Denis Gosalci</h1>
     <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
-</header>
+  </header>
 
-<section class="hero">
-    <h2 id="hero-title">Softwareentwickler mit Schwerpunkt auf Machine Learning & Datenverarbeitung</h2>
-    <p id="hero-sub">Willkommen auf meiner persönlichen Webseite.</p>
-</section>
-
-<section class="section">
-    <h3 id="about-title">Über mich</h3>
-    <p id="about-text">
-        Ich bin Softwareentwickler mit einem Master in Informatik und starker Spezialisierung auf Machine Learning, 
-        Zeitreihenanalyse und Transformer-Architekturen. Durch meine Arbeit am Fraunhofer IIS habe ich Erfahrung in 
-        Forschung und Entwicklung gesammelt, von der Datenaufbereitung bis hin zur Modelloptimierung und Publikation.
-    </p>
-</section>
-
-<section class="section">
-    <h3 id="docs-title">Dokumente</h3>
-    <div class="downloads">
-        <a id="cv-link" href="/assets/docs/Lebenslauf_DE.pdf" download>Lebenslauf (DE)</a>
-        <a id="certs-link" href="/assets/docs/Zeugnisse.pdf" download>Zeugnisse</a>
-        <a id="pub-link" href="/assets/docs/Publikation_IEEE.pdf" download>Publikation</a>
+  <section class="hero">
+    <div class="container">
+      <h2 id="hero-title">Softwareentwickler mit Schwerpunkt auf Machine Learning &amp; Datenverarbeitung</h2>
+      <p id="hero-sub">Willkommen auf meiner persönlichen Webseite.</p>
     </div>
-</section>
+  </section>
 
-<section class="section">
-    <h3 id="contact-title">Kontakt</h3>
-    <p id="contact-text">
+  <main class="container">
+    <section class="card reveal">
+      <h3 id="about-title">Über mich</h3>
+      <p id="about-text" class="muted">
+        Ich bin Softwareentwickler mit einem Master in Informatik und Spezialisierung auf Machine Learning,
+        Zeitreihenanalyse und Transformer-Architekturen. Praxis aus industrieller Forschung (Fraunhofer IIS):
+        Datenaufbereitung, Modellierung, Evaluierung und Publikation.
+      </p>
+    </section>
+
+    <section class="card reveal">
+      <h3 id="docs-title">Dokumente</h3>
+      <div class="docs">
+        <article class="doc">
+          <div class="row">
+            <div class="pdf-icon">PDF</div>
+            <div>
+              <div class="title" id="cv-title">Lebenslauf</div>
+              <div class="desc" id="cv-desc">Aktuelle CV-Version als PDF</div>
+            </div>
+          </div>
+          <a id="cv-link" class="btn" href="/assets/docs/Lebenslauf_DE.pdf" download>Lebenslauf (DE)</a>
+        </article>
+
+        <article class="doc">
+          <div class="row">
+            <div class="pdf-icon">PDF</div>
+            <div>
+              <div class="title" id="certs-title">Zeugnisse</div>
+              <div class="desc" id="certs-desc">Abschluss- und Arbeitszeugnisse</div>
+            </div>
+          </div>
+          <a id="certs-link" class="btn" href="/assets/docs/Zeugnisse.pdf" download>Download</a>
+        </article>
+
+        <article class="doc">
+          <div class="row">
+            <div class="pdf-icon">PDF</div>
+            <div>
+              <div class="title" id="pub-title">Publikation</div>
+              <div class="desc" id="pub-desc">Encoder-basierter Transformer für NBA-Tracking-Vorhersage <span class="ieee-badge">IEEE</span></div>
+            </div>
+          </div>
+          <a id="pub-link" class="btn" href="/assets/docs/Publikation_IEEE.pdf" download>Download</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="card reveal">
+      <h3 id="contact-title">Kontakt</h3>
+      <p id="contact-text" class="muted">
         E-Mail: <a href="mailto:denisgosalci@proton.me">denisgosalci@proton.me</a><br>
-        GitHub: <a href="https://github.com/denisgosalci" target="_blank">github.com/denisgosalci</a>
-    </p>
-</section>
+        GitHub: <a href="https://github.com/denisgosalci/denisgosalci.github.io" target="_blank">github.com/denisgosalci/denisgosalci.github.io</a>
+      </p>
+    </section>
+  </main>
 
-<footer>
-    &copy; 2025 Denis Gosalci
-</footer>
+  <footer>&copy; 2025 Denis Gosalci</footer>
 
-<script>
+  <script>
+    // content for both languages
     const content = {
-        de: {
-            heroTitle: "Softwareentwickler mit Schwerpunkt auf Machine Learning & Datenverarbeitung",
-            heroSub: "Willkommen auf meiner persönlichen Webseite.",
-            aboutTitle: "Über mich",
-            aboutText: "Ich bin Softwareentwickler mit einem Master in Informatik und starker Spezialisierung auf Machine Learning, Zeitreihenanalyse und Transformer-Architekturen. Durch meine Arbeit am Fraunhofer IIS habe ich Erfahrung in Forschung und Entwicklung gesammelt, von der Datenaufbereitung bis hin zur Modelloptimierung und Publikation.",
-            docsTitle: "Dokumente",
-            cvLink: "/assets/docs/Lebenslauf_DE.pdf",
-            cvText: "Lebenslauf (DE)",
-            certsText: "Zeugnisse",
-            pubText: "Publikation",
-            contactTitle: "Kontakt",
-            contactText: "E-Mail: <a href='mailto:denisgosalci@proton.me'>denisgosalci@proton.me</a><br>GitHub: <a href='https://github.com/denisgosalci/denisgosalci.github.io' target='_blank'>github.com/denisgosalci/denisgosalci.github.io</a>"
-        },
-        en: {
-            heroTitle: "Software Developer with a focus on Machine Learning & Data Processing",
-            heroSub: "Welcome to my personal website.",
-            aboutTitle: "About Me",
-            aboutText: "I am a software developer with a Master's degree in Computer Science, specializing in machine learning, time series analysis, and transformer architectures. Through my work at Fraunhofer IIS, I have gained experience in research and development, from data preprocessing to model optimization and publication.",
-            docsTitle: "Documents",
-            cvLink: "/assets/docs/Lebenslauf_EN.pdf",
-            cvText: "Curriculum Vitae (EN)",
-            certsText: "Certificates",
-            pubText: "Publication",
-            contactTitle: "Contact",
-            contactText: "Email: <a href='mailto:denisgosalci@proton.me'>denisgosalci@proton.me</a><br>GitHub: <a href='https://github.com/denisgosalci/denisgosalci.github.io' target='_blank'>github.com/denisgosalci/denisgosalci.github.io</a>"
-        }
+      de: {
+        heroTitle:"Softwareentwickler mit Schwerpunkt auf Machine Learning & Datenverarbeitung",
+        heroSub:"Willkommen auf meiner persönlichen Webseite.",
+        aboutTitle:"Über mich",
+        aboutText:"Ich bin Softwareentwickler mit einem Master in Informatik und Spezialisierung auf Machine Learning, Zeitreihenanalyse und Transformer-Architekturen. Praxis aus industrieller Forschung (Fraunhofer IIS): Datenaufbereitung, Modellierung, Evaluierung und Publikation.",
+        docsTitle:"Dokumente",
+        cvTitle:"Lebenslauf",
+        cvDesc:"Aktuelle CV-Version als PDF",
+        cvLink:"/assets/docs/Lebenslauf_DE.pdf",
+        cvBtn:"Lebenslauf (DE)",
+        certsTitle:"Zeugnisse",
+        certsDesc:"Abschluss- und Arbeitszeugnisse",
+        certsBtn:"Download",
+        pubTitle:"Publikation",
+        pubDesc:"Encoder-basierter Transformer für NBA-Tracking-Vorhersage <span class='ieee-badge'>IEEE</span>",
+        pubBtn:"Download",
+        contactTitle:"Kontakt",
+        contactHTML:"E-Mail: <a href='mailto:denisgosalci@proton.me'>denisgosalci@proton.me</a><br>GitHub: <a href='https://github.com/denisgosalci/denisgosalci.github.io' target='_blank'>github.com/denisgosalci/denisgosalci.github.io</a>"
+      },
+      en: {
+        heroTitle:"Software Developer with a focus on Machine Learning & Data Processing",
+        heroSub:"Welcome to my personal website.",
+        aboutTitle:"About Me",
+        aboutText:"I am a software developer with a Master's in Computer Science, specializing in machine learning, time series analysis, and transformer architectures. Hands-on experience from industrial research (Fraunhofer IIS): data preprocessing, modeling, evaluation, and publication.",
+        docsTitle:"Documents",
+        cvTitle:"Curriculum Vitae",
+        cvDesc:"Most recent CV as PDF",
+        cvLink:"/assets/docs/Lebenslauf_EN.pdf",
+        cvBtn:"CV (EN)",
+        certsTitle:"Certificates",
+        certsDesc:"Academic and employment certificates",
+        certsBtn:"Download",
+        pubTitle:"Publication",
+        pubDesc:"Encoder-based Transformer for NBA tracking prediction <span class='ieee-badge'>IEEE</span>",
+        pubBtn:"Download",
+        contactTitle:"Contact",
+        contactHTML:"Email: <a href='mailto:denisgosalci@proton.me'>denisgosalci@proton.me</a><br>GitHub: <a href='https://github.com/denisgosalci/denisgosalci.github.io' target='_blank'>github.com/denisgosalci/denisgosalci.github.io</a>"
+      }
     };
 
     let currentLang = "de";
+    function toggleLanguage(){
+      currentLang = currentLang === "de" ? "en" : "de";
+      document.querySelector(".lang-toggle").textContent = currentLang === "de" ? "EN" : "DE";
+      const t = content[currentLang];
 
-    function toggleLanguage() {
-        currentLang = currentLang === "de" ? "en" : "de";
-        document.querySelector(".lang-toggle").textContent = currentLang === "de" ? "EN" : "DE";
-        const langData = content[currentLang];
-        document.getElementById("hero-title").textContent = langData.heroTitle;
-        document.getElementById("hero-sub").textContent = langData.heroSub;
-        document.getElementById("about-title").textContent = langData.aboutTitle;
-        document.getElementById("about-text").textContent = langData.aboutText;
-        document.getElementById("docs-title").textContent = langData.docsTitle;
-        document.getElementById("cv-link").href = langData.cvLink;
-        document.getElementById("cv-link").textContent = langData.cvText;
-        document.getElementById("certs-link").textContent = langData.certsText;
-        document.getElementById("pub-link").textContent = langData.pubText;
-        document.getElementById("contact-title").textContent = langData.contactTitle;
-        document.getElementById("contact-text").innerHTML = langData.contactText;
+      // hero
+      document.getElementById("hero-title").textContent = t.heroTitle;
+      document.getElementById("hero-sub").textContent = t.heroSub;
+
+      // about
+      document.getElementById("about-title").textContent = t.aboutTitle;
+      document.getElementById("about-text").textContent = t.aboutText;
+
+      // docs
+      document.getElementById("docs-title").textContent = t.docsTitle;
+
+      document.getElementById("cv-title").textContent = t.cvTitle;
+      document.getElementById("cv-desc").textContent = t.cvDesc;
+      const cvLink = document.getElementById("cv-link");
+      cvLink.href = t.cvLink;
+      cvLink.textContent = t.cvBtn;
+
+      document.getElementById("certs-title").textContent = t.certsTitle;
+      document.getElementById("certs-desc").textContent = t.certsDesc;
+      document.getElementById("certs-link").textContent = t.certsBtn;
+
+      document.getElementById("pub-title").textContent = t.pubTitle;
+      document.getElementById("pub-desc").innerHTML = t.pubDesc;
+      document.getElementById("pub-link").textContent = t.pubBtn;
+
+      // contact
+      document.getElementById("contact-title").textContent = t.contactTitle;
+      document.getElementById("contact-text").innerHTML = t.contactHTML;
     }
-</script>
 
+    // reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
+      })
+    }, {threshold: .12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
 </body>
 </html>
-
