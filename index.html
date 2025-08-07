@@ -9,13 +9,13 @@
     :root{
       --blue:#1f3b73;
       --blue2:#2e5da5;
-      --pastel:#f5f0e6;
+      --pastel:#f5f0e6;   /* beiger Grundton */
       --card:#ffffff;
       --gold:#d4af37;
       --gold2:#b08c2d;
       --ink:#2b2b2b;
       --muted:#6b6b6b;
-      --radius:14px;
+      --radius:16px;
       --shadow:0 10px 25px rgba(0,0,0,.10);
       --shadow-sm:0 4px 12px rgba(0,0,0,.12);
     }
@@ -24,30 +24,28 @@
     body{
       font-family:'Lato',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;
       color:var(--ink);
-      background:var(--pastel);
+      background:var(--pastel);  /* KEIN Verlauf */
       line-height:1.6;
       overflow-x:hidden;
       position:relative;
     }
-    /* subtle paper/rough texture overlay */
+    /* feine „raue“ Textur */
     body::before{
       content:"";
-      position:fixed; inset:0;
-      pointer-events:none;
+      position:fixed; inset:0; pointer-events:none; z-index:0;
       background-image:
         radial-gradient(rgba(0,0,0,.025) 1px, transparent 1.2px),
         radial-gradient(rgba(0,0,0,.015) .7px, transparent 1.1px);
       background-size: 3px 3px, 5px 5px;
-      mix-blend-mode: multiply;
+      mix-blend-mode:multiply;
       opacity:.8;
-      z-index:0;
     }
 
     header{
       position:sticky; top:0; z-index:5;
       padding:14px 22px;
       color:#fff;
-      background:linear-gradient(90deg,var(--blue),var(--blue2));
+      background:linear-gradient(90deg,var(--blue),var(--blue2)); /* Blau nur oben */
       box-shadow:0 2px 8px rgba(0,0,0,.18);
       display:flex; align-items:center; justify-content:space-between;
     }
@@ -64,24 +62,21 @@
     .lang-toggle:hover{ filter:brightness(1.05); transform:translateY(-1px) }
     .lang-toggle:active{ transform:translateY(0) }
 
+    .container{ max-width:1000px; margin:0 auto; padding:0 18px; position:relative; z-index:1 }
+
+    /* Hero jetzt auf Pastell-Hintergrund, ohne Blau */
     .hero{
-      position:relative; z-index:1;
-      color:#fff; text-align:center;
-      padding:72px 18px 84px;
-      background:linear-gradient(180deg,var(--blue) 0%, var(--blue2) 60%, rgba(46,93,165,0) 100%);
+      text-align:center; color:var(--ink);
+      padding:42px 18px 26px;
     }
     .hero h2{
-      font-family:'Merriweather',serif; font-size:2.2rem; line-height:1.25;
-      text-shadow:0 2px 8px rgba(0,0,0,.28);
+      font-family:'Merriweather',serif; font-size:2.2rem; line-height:1.25; color:var(--blue);
     }
-    .hero p{ opacity:.95; margin-top:10px }
-
-    .container{ max-width:1000px; margin:0 auto; padding:0 18px; position:relative; z-index:1 }
+    .hero p{ color:var(--muted); margin-top:10px }
 
     .card{
       background:var(--card); border-radius:var(--radius);
       box-shadow:var(--shadow); padding:22px; margin:22px auto;
-      backdrop-filter:saturate(1.1);
       opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s ease;
     }
     .card.show{ opacity:1; transform:none }
@@ -91,7 +86,7 @@
     .muted{ color:var(--muted) }
 
     .docs{
-      display:grid; gap:16px;
+      display:grid; gap:18px;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
       margin-top:6px;
     }
@@ -104,6 +99,7 @@
     .doc .title{ font-weight:800; color:var(--ink) }
     .doc .desc{ font-size:.95rem; color:var(--muted) }
     .doc .row{ display:flex; align-items:center; gap:10px }
+
     .pdf-icon{
       width:28px; height:28px; flex:0 0 28px; border-radius:6px;
       background:linear-gradient(145deg,#e74c3c,#c0392b);
@@ -208,7 +204,6 @@
   <footer>&copy; 2025 Denis Gosalci</footer>
 
   <script>
-    // content for both languages
     const content = {
       de: {
         heroTitle:"Softwareentwickler mit Schwerpunkt auf Machine Learning & Datenverarbeitung",
