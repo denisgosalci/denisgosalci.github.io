@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denis Gosalci - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2b4a7d;
+            --accent: #d4af37;
+            --light-bg: #f7f7f7;
+            --text-dark: #333;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5rem;
+        }
+        .lang-toggle {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background-color: white;
+        }
+        .hero h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+        .section {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .section h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .downloads {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+        .downloads a {
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        .downloads a:hover {
+            background-color: #b08c2d;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Denis Gosalci</h1>
+    <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
+</header>
+
+<section class="hero">
+    <h2 id="hero-title">Softwareentwickler mit Schwerpunkt auf Machine Learning & Datenverarbeitung</h2>
+    <p id="hero-sub">Willkommen auf meiner persönlichen Webseite.</p>
+</section>
+
+<section class="section">
+    <h3 id="about-title">Über mich</h3>
+    <p id="about-text">
+        Ich bin Softwareentwickler mit einem Master in Informatik und starker Spezialisierung auf Machine Learning, 
+        Zeitreihenanalyse und Transformer-Architekturen. Durch meine Arbeit am Fraunhofer IIS habe ich Erfahrung in 
+        Forschung und Entwicklung gesammelt, von der Datenaufbereitung bis hin zur Modelloptimierung und Publikation.
+    </p>
+</section>
+
+<section class="section">
+    <h3 id="docs-title">Dokumente</h3>
+    <div class="downloads">
+        <a id="cv-link" href="/assets/docs/Lebenslauf_DE.pdf" download>Lebenslauf (DE)</a>
+        <a id="certs-link" href="/assets/docs/Zeugnisse.pdf" download>Zeugnisse</a>
+        <a id="pub-link" href="/assets/docs/Publikation_IEEE.pdf" download>Publikation</a>
+    </div>
+</section>
+
+<section class="section">
+    <h3 id="contact-title">Kontakt</h3>
+    <p id="contact-text">
+        E-Mail: <a href="mailto:denisgosalci@proton.me">denisgosalci@proton.me</a><br>
+        GitHub: <a href="https://github.com/va42xuqi" target="_blank">github.com/va42xuqi</a>
+    </p>
+</section>
+
+<footer>
+    &copy; 2025 Denis Gosalci
+</footer>
+
+<script>
+    const content = {
+        de: {
+            heroTitle: "Softwareentwickler mit Schwerpunkt auf Machine Learning & Datenverarbeitung",
+            heroSub: "Willkommen auf meiner persönlichen Webseite.",
+            aboutTitle: "Über mich",
+            aboutText: "Ich bin Softwareentwickler mit einem Master in Informatik und starker Spezialisierung auf Machine Learning, Zeitreihenanalyse und Transformer-Architekturen. Durch meine Arbeit am Fraunhofer IIS habe ich Erfahrung in Forschung und Entwicklung gesammelt, von der Datenaufbereitung bis hin zur Modelloptimierung und Publikation.",
+            docsTitle: "Dokumente",
+            cvLink: "/assets/docs/Lebenslauf_DE.pdf",
+            cvText: "Lebenslauf (DE)",
+            certsText: "Zeugnisse",
+            pubText: "Publikation",
+            contactTitle: "Kontakt",
+            contactText: "E-Mail: <a href='mailto:denisgosalci@proton.me'>denisgosalci@proton.me</a><br>GitHub: <a href='https://github.com/va42xuqi' target='_blank'>github.com/va42xuqi</a>"
+        },
+        en: {
+            heroTitle: "Software Developer with a focus on Machine Learning & Data Processing",
+            heroSub: "Welcome to my personal website.",
+            aboutTitle: "About Me",
+            aboutText: "I am a software developer with a Master's degree in Computer Science, specializing in machine learning, time series analysis, and transformer architectures. Through my work at Fraunhofer IIS, I have gained experience in research and development, from data preprocessing to model optimization and publication.",
+            docsTitle: "Documents",
+            cvLink: "/assets/docs/Lebenslauf_EN.pdf",
+            cvText: "Curriculum Vitae (EN)",
+            certsText: "Certificates",
+            pubText: "Publication",
+            contactTitle: "Contact",
+            contactText: "Email: <a href='mailto:denisgosalci@proton.me'>denisgosalci@proton.me</a><br>GitHub: <a href='https://github.com/va42xuqi' target='_blank'>github.com/va42xuqi</a>"
+        }
+    };
+
+    let currentLang = "de";
+
+    function toggleLanguage() {
+        currentLang = currentLang === "de" ? "en" : "de";
+        document.querySelector(".lang-toggle").textContent = currentLang === "de" ? "EN" : "DE";
+        const langData = content[currentLang];
+        document.getElementById("hero-title").textContent = langData.heroTitle;
+        document.getElementById("hero-sub").textContent = langData.heroSub;
+        document.getElementById("about-title").textContent = langData.aboutTitle;
+        document.getElementById("about-text").textContent = langData.aboutText;
+        document.getElementById("docs-title").textContent = langData.docsTitle;
+        document.getElementById("cv-link").href = langData.cvLink;
+        document.getElementById("cv-link").textContent = langData.cvText;
+        document.getElementById("certs-link").textContent = langData.certsText;
+        document.getElementById("pub-link").textContent = langData.pubText;
+        document.getElementById("contact-title").textContent = langData.contactTitle;
+        document.getElementById("contact-text").innerHTML = langData.contactText;
+    }
+</script>
+
+</body>
+</html>
